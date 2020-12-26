@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
+    public static final int NUMBER_FRAGMENT = 2;
 
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
@@ -15,17 +16,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
-                return new MapFragment();
             case 1:
                 return new RVListRealEstateFragment();
+            case 0:
             default:
-                return null;
+                return new MapFragment();
         }
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return NUMBER_FRAGMENT;
     }
 }
