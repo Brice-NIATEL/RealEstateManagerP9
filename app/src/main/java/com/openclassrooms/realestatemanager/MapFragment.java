@@ -1,20 +1,22 @@
 package com.openclassrooms.realestatemanager;
 
-import android.arch.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Map_fragment extends Fragment {
+import androidx.fragment.app.Fragment;
+
+public class MapFragment extends Fragment {
 
     private MapFragmentViewModel mViewModel;
 
-    public static Map_fragment newInstance() {
-        return new Map_fragment();
+    public static MapFragment newInstance() {
+        return new MapFragment();
     }
 
     @Override
@@ -26,7 +28,7 @@ public class Map_fragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(MapFragmentViewModel.class);
+        mViewModel = new ViewModelProvider((ViewModelStoreOwner) this, new ViewModelProvider.NewInstanceFactory()).get(MapFragmentViewModel.class);
         // TODO: Use the ViewModel
     }
 
