@@ -60,10 +60,10 @@ public class DescriptionRealEstateFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(DescriptionRealEstateActivityViewModel.class);
 
-        long id = getArguments().getLong(Constants.BUNDLE_ID);
-        Log.d(TAG, "onActivityCreated: id = " + id);
-
         if (getArguments() != null) {
+            long id = getArguments().getLong(Constants.BUNDLE_ID);
+            Log.d(TAG, "onActivityCreated: id = " + id);
+
             mViewModel.getRealestateById(id).observe((LifecycleOwner) requireContext(), new Observer<RealEstate>() {
                 @Override
                 public void onChanged(RealEstate realEstate) {
